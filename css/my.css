@@ -60,7 +60,13 @@ h1.title {
     margin-bottom: 20px;
 }
 
+
 /*stat porker*/
+
 .cover {
     padding: 0 1.5rem;
+}
+
+.container-sequencer {
+    width: 480.8;
 }
