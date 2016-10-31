@@ -1,23 +1,24 @@
 var theme_list_open = false;
 $(document).ready(function() {
-
+    // 固定高度
     function fixHeight() {
 
-        var headerHeight = $("#switcher").height();
+        var headerHeight = $("#switcher").height(); // 獲取高度值
 
         $("#iframe").attr("height", $(window).height() + "px");
 
     }
-
+    // 当浏览器窗口的尺寸改变,resize 被發送到window元素
     $(window).resize(function() {
 
         fixHeight();
 
     }).resize();
-
+    // 將active的類屬性添加到圖形監視器
     $('.icon-monitor').addClass('active');
-
+    // 綁定click事件
     $(".icon-mobile-3").click(function() {
+        // 刪除.添加類
         $('#iframe-wrap').removeClass().addClass('mobile-width-3');
         $('.icon-tablet,.icon-mobile-1,.icon-monitor,.icon-mobile-2,.icon-mobile-3').removeClass('active');
         $(this).addClass('active');
@@ -57,15 +58,17 @@ $(document).ready(function() {
         return false;
     });
 
+    // html id——cate/rid 
+    // 設置cate/rid的值
     if ($("#cate").val() == "27") {
         if ($("#rid").val() != "629" && $("#rid").val() != "915" && $("#rid").val() != "1559") {
-            $(".icon-mobile-2").click();
+            $(".icon-mobile-2").click(); // 綁定
         }
     }
     $("#ad-switcher h2 span").click(function() {
-        $("#ad-switcher").fadeOut();
+        $("#ad-switcher").fadeOut(); //使用淡出效果来隐藏被選元素：
     });
-    $("#ad-switcher").hover(function() {
+    $("#ad-switcher").hover(function() { //hover 选择器用于选择鼠标指针浮动在上面的元素
         $("#ad-switcher").css("opacity", "1");
     }, function() {
         $("#ad-switcher").css("opacity", ".7");
