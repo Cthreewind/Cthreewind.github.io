@@ -5,28 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>山風的期中報告</title>
+
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/my.css">
+
+    <title>D3.js</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!--D3JS放在head裡面-->
+
 </head>
 
 <body>
+
     <!-- 導覽例-->
     <div class="navbar-header">
         <div class="container-fluid">
             <nav class="navbar navbar-full navbar-fixed-top navbar-dark bg-inverse bg-faded">
 
                 <div class="container">
-                    <a class="navbar-brand m-b-0" href="#">Project Name</a>
+                    <a class="navbar-brand m-b-0" href="#">Hello D3.JS</a>
 
                     <ul class="nav navbar-nav">
                         <li class="nav-item">
                             <div class="btn-group">
-                                <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">JavaScript</a>
+                                <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">MAYDAY</a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Hello World</a>
-                                    <a class="dropdown-item" href="#">Input</a>
-                                    <a class="dropdown-item active" href="#">BMI</a>
+                                    <a class="dropdown-item" href="./ex_js001.html">Hello World</a>
+                                    <a class="dropdown-item" href="./ex_js002.html">Input</a>
+                                    <a class="dropdown-item active" href="./ex_js003.html">BMI</a>
                                     <div class="dropdown-divider"></div>
 
                                 </div>
@@ -36,13 +42,13 @@
 
                     <ul class="nav navbar-nav pull-md-right">
                         <li class="nav-item ">
-                            <a class="nav-link" href="./index.html">Home </a>
+                            <a class="nav-link" href="#">Home </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./travel.html">Travel</a>
+                            <a class="nav-link" href="#">Travel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./ex_js003.html">Game</a>
+                            <a class="nav-link" href="#">Game</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">About</a>
@@ -52,34 +58,69 @@
             </nav>
         </div>
     </div>
-    <!--內文-->
-    <hr>
-    </div>
-    <div class="col-md-12" width=100% align="center" valign="center">
-        <div class="card">
-            <img class="card-img-top" src="./img/middle/1.jpg" alt="Card image cap">
-            <div class="card-block">
-                <h4 class="card-title">中期報告主頁</h4>
-                <p class="card-text">[我原來是想放這個小紅塊的遊戲的，週日晚上有個同學突然告訴我他跟我的遊戲重複了讓我要改掉，臨時換成了架子鼓的遊戲，<br> 但是我真的理解不了那一長串的代碼所以還是換回這個小紅塊，我真的沒有辦法在這麼短時間看明白那麼複雜的代碼 TUT <br> 自己又不會寫又找不到新的可以看懂的遊戲代碼，心裡好苦啊，老師酌情給分吧 TUT<br>我還是會好好學習天天向上爭取期末鹹魚翻身的</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <span class="input-group-btn">
+        <button  class="btn btn-secondary" type="button">x</button>
+      </span>
+                <input id="rx" type="text" class="form-control" placeholder="請輸入X  >150">
+
+            </div>
+            <div class="input-group">
+                <span class="input-group-btn">
+        <button  class="btn btn-secondary" type="button">y</button>
+      </span>
+                <input id="ry" type="text" class="form-control" placeholder="請輸入Y >150">
+
             </div>
         </div>
-    </div>
-    </table>
-    </div>
-    <!--頁尾-->
-    <div class="footer">
-        <div class="container">
-            &copy; 2016 Chen@STU
+        <button id="testx" type="button" class="btn btn-primary">随机x(0-500)</button>
+        <br>
+        <button id="testy" type="button" class="btn btn-primary">随机y(0-450)</button>
+        <div>
+            <button id="test" type="button" class="btn btn-primary">showBalloon</button>
+
+
+            <button id="testauto" type="button" class="btn btn-primary">自动上升</button>
+            <!--<button id="testautoM" type="button" class="btn btn-primary">LOGO右移</button>-->
+
+            <!--<input id="autoy" type="text" class="form-control" placeholder="請輸入autoY >150">-->
+
+        </div>
+
+        <!--<svg height="2000" width="2000" id="output">-->
+        <!--<ellipse cx="250" cy="250" rx="100" ry="120"
+  style="fill:#EBEB7A;stroke:#858514;stroke-width:2" />-->
+        <!--<polygon points="250,372 270,390 230,390" style="fill:#858514;stroke:#EBEB7A;stroke-width:1" />
+  <line x1="250" y1="390" x2="250" y2="500" style="stroke:#858514;stroke-width:2" />-->
+
+        <!--<polyline points="700,330 650,500 695,500 700,490 705,500 750,500 700,330"
+  style="fill:none;stroke:black;stroke-width:3" />
+  <polyline points="700,490 700,425  755,370 755,500 705,500 "
+  style="fill:none;stroke:black;stroke-width:3" />
+  <polyline points="700,425  645,370 645,500 650,500 "
+  style="fill:none;stroke:black;stroke-width:3" />
+  <circle cx="700" cy="323" r="7" stroke="black" stroke-width="3" fill="#fff" />-->
+        <!--</svg>-->
+        <div>
+            <svg></svg>
         </div>
     </div>
+    </div>
+    </div>
+    </div>
+
+
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
 
-
-    <script src="./js/bootstrap.js"></script>
-    <script src="./js/js007.js"></script>
+    <script src="./js/myd3.js"></script>
 </body>
 
 </html>
